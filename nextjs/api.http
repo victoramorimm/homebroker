@@ -1,0 +1,5 @@
+### Get the wallet assets
+GET http://localhost:8000/wallets/wallet1/assets
+
+### Get the wallet orders
+GET http://localhost:8000/wallets/wallet1/orders

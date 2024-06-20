@@ -1,0 +1,66 @@
+GET http://localhost:3000
+
+### Create a new asset
+POST http://localhost:3000/assets
+Content-Type: application/json
+
+{
+    "id": "asset2",
+    "symbol": "A1",
+    "price": 100
+}
+
+
+### Get the assets
+GET http://localhost:3000/assets
+
+
+### Create new wallet
+POST http://localhost:3000/wallets
+Content-Type: application/json
+
+{
+    "id": "wallet2"
+}
+
+### Get the wallets
+GET http://localhost:3000/wallets
+
+### Create a new wallet asset
+POST http://localhost:3000/wallets/wallet2/assets
+Content-Type: application/json
+
+{
+    "asset_id": "asset2",
+    "shares": 10
+}
+
+### Get the wallet assets
+GET http://localhost:3000/wallets/wallet2/assets
+
+### Create a new order
+POST http://localhost:3000/wallets/wallet2/orders
+Content-Type: application/json
+
+{
+    "asset_id": "asset2",
+    "type": "BUY",
+    "shares": 5,
+    "price": 100
+}
+
+### Get the orders
+GET http://localhost:3000/wallets/wallet2/orders
+
+### Execute the order
+POST http://localhost:3000/wallets/wallet1/orders/execute
+Content-Type: application/json
+
+{
+    "order_id": "664a6c35bb63c2ba65d73b84",
+    "status": "CLOSED",
+    "related_investor_id": "investor_id",
+    "broker_transaction_id": "broker_transaction_id",
+    "negotiated_shares": 5,
+    "price": 10
+}
